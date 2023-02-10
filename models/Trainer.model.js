@@ -17,8 +17,11 @@ const trainerSchema = new Schema(
     },
     stats: {
         boxing: Number,
-        losses: Number
-      }
+        thai: Number,
+        jitsu: Number,
+        wrestling: Number,
+        strength: Number
+    }
   }
 );
 
