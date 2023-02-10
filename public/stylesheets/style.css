@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: red;
 }
@@ -13,5 +13,5 @@ h1 {
 }
 
 .purple {
-  color: purple;
+  background-color: purple;
 }
