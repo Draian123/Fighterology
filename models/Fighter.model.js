@@ -3,27 +3,34 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const fighterSchema = new Schema(
   {
-    username: {
-      type: String,
-      trim: true,
-      required: false,
-      unique: true
-    },
-    email: {
+    name: {
       type: String,
       required: true,
-      unique: true,
-      lowercase: true,
-      trim: true
     },
     password: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
+    age: {
+      type: Number,
+    },
+    weight: {
+      type: Number,
+    },
+    height: {
+      type: Number,
+    },
+    fights: {
+      wins: Number,
+      losses: Number
+    },
+    trainer : {
+        type: [Schema.Types.ObjectId],
+        ref: 'Trainer'
+    },
+    stats: {
+      type: String,
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
-    timestamps: true
   }
 );
 
