@@ -16,8 +16,9 @@ const trainerSchema = new Schema(
         ref: 'Fighter'
     },
     stats: {
-        type: String,
-    },
+        boxing: Number,
+        losses: Number
+      }
   }
 );
 
