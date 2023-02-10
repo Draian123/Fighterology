@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
-const userSchema = new Schema(
+const fighterSchema = new Schema(
   {
     username: {
       type: String,
@@ -27,6 +27,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+const Fighter = model("Fighter", fighterSchema);
 
-module.exports = User;
+module.exports = Fighter;
