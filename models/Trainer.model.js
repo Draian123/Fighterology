@@ -6,6 +6,7 @@ const trainerSchema = new Schema(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     expertise: {
       type: String,
@@ -15,12 +16,13 @@ const trainerSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: 'Fighter'
     }],
-    stats: {
+    bonus: {
       type: Number,
       required: true
     }
   }
 );
+
 
 const Trainer = model("Trainer", trainerSchema);
 

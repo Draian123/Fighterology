@@ -1,43 +1,41 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require('mongoose');
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
-const fighterSchema = new Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    age: {
-      type: Number,
-    },
-    weight: {
-      type: Number,
-    },
-    height: {
-      type: Number,
-    },
-    fights: {
-      wins: Number,
-      losses: Number
-    },
-    trainers : [{
-        type: Schema.Types.ObjectId,
-        ref: 'Trainer'
-    }],
-    stats: {
-      boxing: Number,
-      'muay thai': Number,
-      'jiu jitsu': Number,
-      wrestling: Number,
-      strength: Number
-  }
-  }
-);
+const fighterSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  age: {
+    type: Number,
+  },
+  weight: {
+    type: Number,
+  },
+  height: {
+    type: Number,
+  },
 
-const Fighter = model("Fighter", fighterSchema);
+  wins: { type: Number },
+  losses: { type: Number },
+
+  trainers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Trainer',
+    },
+  ],
+  boxing: { type: Number },
+  'muay thai': { type: Number },
+  'jiu jitsu': { type: Number },
+  wrestling: { type: Number },
+  strength: { type: Number },
+});
+
+const Fighter = model('Fighter', fighterSchema);
 
 module.exports = Fighter;

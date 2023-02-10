@@ -1,19 +1,62 @@
 <div>signup</div>
 <form action="/auth" method="POST">
-    <label><input type="text" name="username">Name</label>
-    <label><input type="text" name="password">Password</label>
+    <label><input type="text" name="name">Name</label>
+    <br>
+    <label><input type="password" name="password" >Password</label>
+    <br>
     <label><input type="number" name="age">Age</label>
+    <br>
     <label><input type="number" name="weight">Weight</label>
+    <br>
     <label><input type="number" name="height">Height</label>
+    <br>
     <label><input type="number" name="wins">Wins</label>
+    <br>
     <label><input type="number" name="loses">Loses</label>
+    <br>
     <label>
+        Trainer:
         <select name="trainer">
             <% allTrainers.forEach(trainer => { %>
-                <option value="<%= trainer._id %>"><%= trainer.name %></option>
+                <option value="<%= trainer._id %>"><%= trainer.expertise %></option>
             <% }) %>
         </select>
     </label>
+    <label>Boxing:<select name="boxing">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select></label>
+    <label>Muay Thai:<select name="muay thai">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select></label>
+    <label>Jiu Jitsu:<select name="jiu jitsu">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select></label>
+    <label>Wrestling:<select name="wrestling">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select></label>
+    <label>Strength:<select name="strength">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select></label>
     <button type="submit">Submit</button>
 </form>
 <a href="/">Home</a>
