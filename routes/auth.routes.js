@@ -7,13 +7,16 @@ const Trainer = require('../models/Trainer.model')
 /* GET home page */
 router.get("/", async (req, res, next) => {
   let allTrainers = await Trainer.find()
-  console.log(allTrainers)
+  // console.log(allTrainers)
   res.render("signUp",{ allTrainers});
+
+
 });
 
 router.post("/", async(req, res, next) => {
   let body = req.body
   const createdFighter = await Fighter.create(body)
+  req.session.createdFighter = createdFighter
 
   if(createdFighter){
       res.redirect('auth/login')
