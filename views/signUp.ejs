@@ -1,7 +1,19 @@
 <div>signup</div>
-<form action="/auth" method="GET">
+<form action="/auth" method="POST">
     <label><input type="text" name="username">Name</label>
     <label><input type="text" name="password">Password</label>
+    <label><input type="number" name="age">Age</label>
+    <label><input type="number" name="weight">Weight</label>
+    <label><input type="number" name="height">Height</label>
+    <label><input type="number" name="wins">Wins</label>
+    <label><input type="number" name="loses">Loses</label>
+    <label>
+        <select name="trainer">
+            <% allTrainers.forEach(trainer => { %>
+                <option value="<%= trainer._id %>"><%= trainer.name %></option>
+            <% }) %>
+        </select>
+    </label>
     <button type="submit">Submit</button>
 </form>
 <a href="/">Home</a>

@@ -24,14 +24,14 @@ const fighterSchema = new Schema(
       wins: Number,
       losses: Number
     },
-    trainer : {
-        type: [Schema.Types.ObjectId],
+    trainers : [{
+        type: Schema.Types.ObjectId,
         ref: 'Trainer'
-    },
+    }],
     stats: {
       boxing: Number,
-      thai: Number,
-      jitsu: Number,
+      'muay thai': Number,
+      'jiu jitsu': Number,
       wrestling: Number,
       strength: Number
   }

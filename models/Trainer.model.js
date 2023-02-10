@@ -11,16 +11,13 @@ const trainerSchema = new Schema(
       type: String,
       enum: ['boxing', 'muay thai', 'jiu jitsu', 'wrestling', 'strength']
     },
-    fighter : {
-        type: [Schema.Types.ObjectId],
+    fighters : [{
+        type: Schema.Types.ObjectId,
         ref: 'Fighter'
-    },
+    }],
     stats: {
-        boxing: Number,
-        thai: Number,
-        jitsu: Number,
-        wrestling: Number,
-        strength: Number
+      type: Number,
+      required: true
     }
   }
 );
