@@ -3,7 +3,12 @@ const router = express.Router();
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("profile");
+  res.render("signUp");
 });
+
+router.get("/", (req, res, next) => {
+  res.render("login");
+});
+
 
 module.exports = router;
