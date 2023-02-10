@@ -29,8 +29,12 @@ const fighterSchema = new Schema(
         ref: 'Trainer'
     },
     stats: {
-      type: String,
-  },
+      boxing: Number,
+      thai: Number,
+      jitsu: Number,
+      wrestling: Number,
+      strength: Number
+  }
   }
 );
 
