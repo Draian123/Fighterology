@@ -9,7 +9,11 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true,
-  }
+  },
+  shoppingLists: [{
+    type: Schema.Types.ObjectId,
+    ref: 'ShoppingList'
+}]
 });
 
 const User = model('User', UserSchema);
