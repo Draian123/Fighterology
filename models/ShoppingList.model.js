@@ -6,12 +6,20 @@ const shoppingListSchema = new Schema(
     name: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
     },
-    items: [{
+    userId:{
+      type: String,
+      required: true
+    },
+    need: [{
         type: Schema.Types.ObjectId,
         ref: 'Product'
-    }]
+    }],
+    have: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Product'
+  }],
   }
 );
 

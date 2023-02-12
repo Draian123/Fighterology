@@ -8,14 +8,19 @@
         <!-- <div style="background-image: url('<%#= album.images[0].url%>'); height: 400px; width: 350px; background-size: cover;"></div> -->
 
         <div>
-            <h3><%-list.name%></h1>
+          <h3><%-list.name%></h1>
           <!-- <a href="<%#- artist.items[i].images[0].url%>">Pic</a> -->
-          <button><a href="/auth/profile/<%- list._id%>">View List</a></button>
+          <form action="/auth/profile/list/<%- list._id%>">
+            <button type="submit">View List</button>
+          </form>
           <form action="/auth/profile/delete/<%- list._id%>" method="POST">
-            <button>Delete</button>
+            <button type="submit" >Delete</button>
           </form>
         </div>
     </div>
     <% }) %>
 
-<button>Create Shopping List</button>
+<form action="/auth/profile/createNewList" method="POST">
+  <label><input type="text" name="newList" placeholder="Listname"></label>
+  <button type="submit" >Create new List</button>
+</form>

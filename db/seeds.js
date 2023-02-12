@@ -5,15 +5,7 @@
 const mongoose = require("mongoose");
 const Product = require("../models/Product.model");
 const ShoppingList = require('../models/ShoppingList.model')
-const starterShoppingList =[ {
-  name: "groceries",
-}, {
-  name: "holydays"
-},
-  {
-    name: "cosmetics"
-  }
-]
+
 
 
 const starterProducts = [
@@ -56,10 +48,9 @@ mongoose
     const databaseName = x.connections[0].name;
     console.log(`Connected to Mongo! Database name: "${databaseName}"`);
     await ShoppingList.collection.drop()
-    await ShoppingList.create(starterShoppingList)
+    // await ShoppingList.create(starterShoppingList)
     await Product.collection.drop()
     await Product.create(starterProducts)
-    // mongoose.connection.close()
   })
   .then(() => mongoose.connection.close())
   .catch((err) => {
