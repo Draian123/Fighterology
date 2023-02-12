@@ -1,5 +1,20 @@
 <div>
     <h1>Need</h1>
+<% if (needs) { %> 
+    <% needs.forEach(need => { %>
+        <div >    
+            <div>
+              <!-- <a href="<%#- artist.items[i].images[0].url%>">Pic</a> -->
+              <form action="/moveNeedToHave" method="POST">
+                  <label><%-need.name%>
+                    <input type="checkbox" name="name" value="<%-need.name%>">
+                  </label>
+                </form>
+                <br>
+            </div>
+        </div>
+    <% }) %>
+<% } %>
     <label>Bread</label>
     <input type="checkbox" name="vehicle1" value="Bike">
     <br>
@@ -25,8 +40,10 @@
 
 <br>
 <div>
-    
-    <label>Product: <input type="text" name="productname"></label><button>Add Product to List</button>
+    <form action="/addProduct/<%- listId %>" method="POST">
+        <label>Product: <input type="text" name="name"></label><button type="su
+        ">Add Product to List</button>
+    </form>
 </div>
 
 

@@ -55,12 +55,13 @@ router.post('/login', async(req, res) => {
   }else{
       if(bcrypt.compareSync(body.password, userFound[0].password)){
           let allShoppingListsofUser = await ShoppingList.find({userId: userFound[0]._id})
-          // console.log(allShoppingListsofUser)
+          console.log(allShoppingListsofUser)
+          console.log(userFound[0].shoppingLists)
           userFound[0].shoppingLists = allShoppingListsofUser
           console.log(userFound[0])
           req.session.user = userFound[0]
           // console.log(req.session.user.shoppingLists)
-          res.redirect('profile')
+          res.redirect('/auth/profile')
       } else {
           // res.render('signIn', {errorMessage: 'wrong password', body})
           throw new Error('Invalid password')
@@ -93,16 +94,8 @@ router.post("/profile/delete/:id", async (req, res, next) => {
 
 router.get("/profile/:id", (req, res, next) => {
   // const listId = req.params.id
-  res.render("profile", {allShoppingLists: req.session.allShoppingLists})
+  res.render("profile", {allShoppingLists: req.session.user.shoppingLists})
   // res.redirect("profile");
-});
-//adds a ? to get routes with id
-router.get("/profile/list/:id", async(req, res, next) => {
-  const user = req.session.user
-  // console.log(user)
-  const allProducts = await Product.find()
-  // console.log(allProducts)
-  res.render("list", {allProducts});
 });
 
 
@@ -119,6 +112,20 @@ router.post("/profile/createNewList", async (req, res, next) => {
   req.session.user.shoppingLists = userShoppingLists
   res.redirect("/auth/profile");
 });
+//adds a ? to get routes with id
+router.get("/profile/list/:id", async(req, res, next) => {
+  const listId = req.params.id
+  const user = req.session.user
+  // console.log(user)
+  const currentList = await ShoppingList.findById(listId)
+  // console.log(currentList)
+
+  const allProducts = await Product.find()
+  // console.log(allProducts)
+  res.render("list", {allProducts, needs: allProducts.need, haves: allProducts.have, listId});
+});
+
+
 
 
 module.exports = router;
