@@ -43,9 +43,9 @@ router.get("/login", (req, res, next) => {
 
 router.post('/login', async(req, res) => {
   const body = req.body
-  let allShoppingLists = await ShoppingList.find()
+  // let allShoppingLists = await ShoppingList.find()
   // console.log(allShoppingLists)
-  req.session.allShoppingLists = allShoppingLists
+  // req.session.allShoppingLists = allShoppingLists
   // console.log(body)
   try{
       let userFound = await User.find({name: body.name})
@@ -57,6 +57,7 @@ router.post('/login', async(req, res) => {
           let allShoppingListsofUser = await ShoppingList.find({userId: userFound[0]._id})
           // console.log(allShoppingListsofUser)
           userFound[0].shoppingLists = allShoppingListsofUser
+          console.log(userFound[0])
           req.session.user = userFound[0]
           // console.log(req.session.user.shoppingLists)
           res.redirect('profile')
@@ -75,16 +76,18 @@ router.post('/login', async(req, res) => {
 
 router.get("/profile", (req, res, next) => {
   
-  console.log(req.session.allShoppingLists)
-  res.render("profile", {allShoppingLists: req.session.allShoppingLists});
+  // console.log(req.session.allShoppingLists)
+  // console.log(req.session.user)
+  res.render("profile", {allShoppingLists: req.session.user.shoppingLists});
 });
 
 router.post("/profile/delete/:id", async (req, res, next) => {
   const listId = req.params.id
   // console.log(listId)
   await ShoppingList.findByIdAndDelete(listId)
-  let allShoppingLists = await ShoppingList.find()
-  req.session.allShoppingLists = allShoppingLists
+  let allShoppingLists = await ShoppingList.find({userId: req.session.user._id})
+  console.log(allShoppingLists)
+  req.session.user.shoppingLists = allShoppingLists
   res.redirect("/auth/profile");
 });
 
@@ -111,8 +114,9 @@ router.post("/profile/createNewList", async (req, res, next) => {
   // console.log(user)
   await ShoppingList.create({name: newList, userId: user._id})
   let userShoppingLists = await ShoppingList.find({userId: user._id})
-  console.log(userShoppingLists)
-  req.session.allShoppingLists = userShoppingLists
+  // console.log(userShoppingLists)
+  // console.log(user)
+  req.session.user.shoppingLists = userShoppingLists
   res.redirect("/auth/profile");
 });
 
