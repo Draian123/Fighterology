@@ -14,6 +14,10 @@
                   </label>
                 </form>
                 <br>
+                <!-- <form action="/delete/product/<%#- listId %>" method="POST">
+                    <input type="hidden" name="id" value="<%#-need._id%>">
+                    <button type="submit" >Delete</button>
+                </form> -->
             </div>
         </div>
     <% }) %>
@@ -23,10 +27,10 @@
     <h1>Have</h1>
 
     <% if (haves) { %> 
-        <% haves.forEach((have,i) => { %>
+        <% haves.forEach((have) => { %>
             <div >    
                 <div>
-                  <form action="/movehaveToNeed/<%- listId %>" method="POST">
+                  <form action="/moveHaveToNeed/<%- listId %>" method="POST">
                       <label>
                         <h5><%- have.name %></h5>
                         <input type="hidden" name="id" value="<%-have._id%>">
@@ -34,22 +38,14 @@
                       </label>
                     </form>
                     <br>
+                    <form action="/delete/product/<%- listId %>" method="POST">
+                        <input type="hidden" name="id" value="<%-have._id%>">
+                        <button type="submit" >Delete</button>
+                    </form>
                 </div>
             </div>
         <% }) %>
     <% } %>
-    <label > Water</label>
-    <input type="checkbox" name="product" value="Bike">
-    <form action="/auth/profile" method="POST">
-        <button type="submit" >Delete</button>
-    </form>
-    <br>
-    <label> Chicken</label>
-    <input type="checkbox"  name="product" value="Bike">
-    <form action="/auth/profile" method="POST">
-        <button type="submit" >Delete</button>
-    </form>
-    <br>
 </div>
 
 <br>
