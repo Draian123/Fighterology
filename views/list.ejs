@@ -1,13 +1,16 @@
 <div>
     <h1>Need</h1>
 <% if (needs) { %> 
-    <% needs.forEach(need => { %>
+    <% needs.forEach((need,i) => { %>
         <div >    
             <div>
               <!-- <a href="<%#- artist.items[i].images[0].url%>">Pic</a> -->
-              <form action="/moveNeedToHave" method="POST">
-                  <label><%-need.name%>
-                    <input type="checkbox" name="name" value="<%-need.name%>">
+              <form action="/moveNeedToHave/<%- listId %>" method="POST">
+                  <label>
+                    <h5><%- need.name %></h5>
+                    <!-- <input type="checkbox" name="id" value="<%#-need._id%>"> -->
+                    <input type="hidden" name="id" value="<%-need._id%>">
+                    <button type="submit">Move To Have</button>
                   </label>
                 </form>
                 <br>
@@ -15,15 +18,26 @@
         </div>
     <% }) %>
 <% } %>
-    <label>Bread</label>
-    <input type="checkbox" name="vehicle1" value="Bike">
-    <br>
-    <label > Rice</label>
-    <input type="checkbox" name="vehicle1" value="Bike">
-    <br>
 </div>
 <div>
     <h1>Have</h1>
+
+    <% if (haves) { %> 
+        <% haves.forEach((have,i) => { %>
+            <div >    
+                <div>
+                  <form action="/movehaveToNeed/<%- listId %>" method="POST">
+                      <label>
+                        <h5><%- have.name %></h5>
+                        <input type="hidden" name="id" value="<%-have._id%>">
+                        <button type="submit">Move To Need</button>
+                      </label>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
     <label > Water</label>
     <input type="checkbox" name="product" value="Bike">
     <form action="/auth/profile" method="POST">
@@ -47,17 +61,17 @@
 </div>
 
 
-<br>
-<div>All Products</div>
-<% allProducts.forEach(product => { %>
-    <div >
+<!-- <br> -->
+<!-- <div>All Products</div> -->
+<%# allProducts.forEach(product => { %>
+    <!-- <div > -->
         <!-- <img src="<%#= album.images[0].url%>" alt="picture" /> -->
         <!-- <div style="background-image: url('<%#= album.images[0].url%>'); height: 400px; width: 350px; background-size: cover;"></div> -->
 
-        <div>
-            <h1><%-product.name%></h1>
+        <!-- <div> -->
+            <!-- <h1><%#-product.name%></h1> -->
           <!-- <a href="<%#- artist.items[i].images[0].url%>">Pic</a> -->
-          <button><a href="/auth/profile/">Add To some List</a></button>
+          <!-- <button><a href="/auth/profile/">Add To some List</a></button>
         </div>
-    </div>
-<% }) %>
+    </div> -->
+<%# }) %> 
