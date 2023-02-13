@@ -117,7 +117,7 @@ router.get("/profile/list/:id", async(req, res, next) => {
   const listId = req.params.id
   const user = req.session.user
   // console.log(user)
-  const currentList = await ShoppingList.findById(listId).populate('need')
+  const currentList = await ShoppingList.findById(listId).populate('need').populate('have')
   // console.log(currentList)
 
   // const allProducts = await Product.find()
