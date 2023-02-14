@@ -1,14 +1,33 @@
+* {
+    font-family: Arial;
+}
+
 body {
     margin: 0;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    /* background-color: #dbf3ce; */
-    /* color: #e0e5e1 */
 }
 
-a {
-color: #e0e5e1;
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
-color: 15px;
+ul {
+    list-style-type: none;
+} 
+
+li {
+    padding: 15px 50px;
+}
+
+.notANavBar {
+    margin: 0;
+}
+
+.navBarLinks {
+    text-decoration: none;
+    color: #292e30;
+    font-size: 18px;
 }
