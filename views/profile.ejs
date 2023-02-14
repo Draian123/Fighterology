@@ -4,12 +4,8 @@
 <br>
 <% allShoppingLists.forEach(list => { %>
     <div >
-        <!-- <img src="<%#= album.images[0].url%>" alt="picture" /> -->
-        <!-- <div style="background-image: url('<%#= album.images[0].url%>'); height: 400px; width: 350px; background-size: cover;"></div> -->
-
         <div>
           <h3><%-list.name%></h1>
-          <!-- <a href="<%#- artist.items[i].images[0].url%>">Pic</a> -->
           <form action="/auth/profile/list/<%- list._id%>">
             <button type="submit">View List</button>
           </form>
