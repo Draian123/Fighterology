@@ -35,7 +35,7 @@ router.get("/login", isLoggedOut, (req, res, next) => {
   res.render("login");
 });
 
-router.post('/login', async(req, res) => {
+router.post('/login', isLoggedOut, async(req, res) => {
   const body = req.body
   try{
       let userFound = await User.find({name: body.name})
