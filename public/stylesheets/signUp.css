@@ -1,20 +1,18 @@
-.background {
+/* .background {
     height: 100vh;
     width: 100vw;
     background-color: #dbf3ce;
     background-image: url("/images/logo.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     justify-content: center;
 }
   
 .signUpFlex {
-    height: 25vh;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: end;
-    border: solid 1px #40331a;
-    border-radius: 5px;
 }
 
 .signUpInputs {
@@ -37,5 +35,8 @@ label {
 }
 
 .signUpForm {
-    
-}
+    height: 150px;
+    width: 200px;
+    border: solid 2px #40331a;
+    border-radius: 5px;
+} */
