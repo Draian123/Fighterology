@@ -7,7 +7,7 @@
   text-align: center;
   z-index: 120;
   color: white;
-  background-color: #b6c2dc;
+  background-color: #ffffff;
   border-radius: 5px;
   padding: 25px;
   -webkit-box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.55);
@@ -34,15 +34,13 @@ box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.55);
 }
 
 .signUpButtons {
-    color: #292e30;
+    background-color: #4682b6;
+    color: white;
     border: none;
     margin: 20px;
     padding: 15px 50px;
     border-radius: 5px;
     width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .signUpForm {
