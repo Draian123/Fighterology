@@ -111,7 +111,7 @@ router.get("/profile/list/:id", isLoggedIn, async(req, res, next) => {
   const user = req.session.user
   const currentList = await ShoppingList.findById(listId).populate('need').populate('have')
 
-  res.render("list", {needs: currentList.need, haves: currentList.have, listId, online: req.session.user});
+  res.render("list", {needs: currentList.need, haves: currentList.have, name: currentList.name, listId, online: req.session.user});
 });
 
 

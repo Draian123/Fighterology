@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(240, 240, 240);
 }
 
 .profileCard{
@@ -24,6 +24,16 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 400px;
+    height: 200px;
+    background-color: rgb(236, 236, 236);
+    border: 1px solid rgb(84, 84, 235);
+    border-radius: 10px;
+    color: white;
+    padding: 40px;
+    margin: 20px;
+    -webkit-box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.55);
+    box-shadow: 2px 2px 12px 0px rgba(61, 61, 61, 0.55);
 }
 
 .headLines{
@@ -61,17 +71,6 @@ body{
 }
 
 
-.listCard{
-    width: 400px;
-    height: 200px;
-    background-color: rgb(231, 231, 231);
-    border: 1px solid rgb(84, 84, 235);
-    border-radius: 10px;
-    color: white;
-    padding: 40px;
-    margin: 20px;
-}
-
 .createForm{
     width: 400px;
     height: 150px;
@@ -80,8 +79,8 @@ body{
 
 /* list css */
 
-/* 
-.profileCard{
+
+.listPageCard{
     width: 1400px;
     height: 600px;
     z-index: 120;
@@ -91,5 +90,64 @@ body{
     -webkit-box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.55);
     box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.55);
     display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+
+.someContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.needContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.innerContainer{
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-} */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  } */
+
+  .oneItem{
+    width: 150px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .oneButton{
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: rgb(84, 84, 235);
+    border: none;
+    color: white;
+  }
+  
+  .oneItemText{
+    color: rgb(70, 70, 70);
+    font-size: 18px;
+  }
+  .textCenter{
+    text-align: center;
+  }

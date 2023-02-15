@@ -1,35 +1,5 @@
-<!-- <h1>Profile</h1>
-<br>
-<h1>All ShoppingLists</h1>
-<br>
-<%# allShoppingLists.forEach(list => { %>
-    <div >
-        <div>
-          <h3><%#-list.name%></h1>
-          <form action="/auth/profile/list/<%#- list._id%>">
-            <button type="submit">View List</button>
-          </form>
-          <form action="/auth/profile/delete/<%#- list._id%>" method="POST">
-            <button type="submit" >Delete</button>
-          </form>
-        </div>
-    </div>
-    <%# }) %>
-
-<form action="/auth/profile/createNewList" method="POST">
-  <label><input type="text" name="newList" placeholder="Listname" required></label>
-  <button type="submit" >Create new List</button>
-  <%# if (typeof err !== 'undefined') { %>
-    <p style="color: blue"><%#= err %></p>
-    <%# } %>
-</form> -->
-
-
-<!-- copied -->
-
-
 <div style="color: black; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="image1">
-  <h1 class="headLines">All ShoppingLists</h1>
+  <h1 class="headLines">All Lists</h1>
   <div class="formContainer createForm">
     <form action="/auth/profile/createNewList" method="POST">
       <input class="signUpAInputs" type="text" name="newList" placeholder="List Name" required>
@@ -58,8 +28,7 @@
                 </form>
               </div>
         </div>
-        <% }) %>
-    
+        <% }) %> 
       </div>
 </div>
 

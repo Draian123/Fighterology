@@ -1,61 +1,70 @@
-<div>
-    <h1>Need</h1>
-<% if (needs) { %> 
-    <% needs.forEach((need,i) => { %>
-        <div >    
-            <div>
-              <!-- <a href="<%#- artist.items[i].images[0].url%>">Pic</a> -->
-              <form action="/moveNeedToHave/<%- listId %>" method="POST">
-                  <label>
-                    <h5><%- need.name %></h5>
-                    <!-- <input type="checkbox" name="id" value="<%#-need._id%>"> -->
-                    <input type="hidden" name="id" value="<%-need._id%>">
-                    <button type="submit">Move To Have</button>
-                  </label>
-                </form>
-                <br>
-                <!-- <form action="/delete/product/<%#- listId %>" method="POST">
-                    <input type="hidden" name="id" value="<%#-need._id%>">
-                    <button type="submit" >Delete</button>
-                </form> -->
-            </div>
-        </div>
-    <% }) %>
-<% } %>
-</div>
-<div>
-    <h1>Have</h1>
 
-    <% if (haves) { %> 
-        <% haves.forEach((have) => { %>
-            <div >    
-                <div>
-                  <form action="/moveHaveToNeed/<%- listId %>" method="POST">
-                      <label>
-                        <h5><%- have.name %></h5>
-                        <input type="hidden" name="id" value="<%-have._id%>">
-                        <button type="submit">Move To Need</button>
-                      </label>
-                    </form>
-                    <br>
-                    <form action="/delete/product/<%- listId %>" method="POST">
-                        <input type="hidden" name="id" value="<%-have._id%>">
-                        <button type="submit" >Delete</button>
-                    </form>
+<div class="formContainer">
+    <h1 class="headLines"><%- name %></h1>
+    <div class="formContainer" style="margin-bottom: 30px;">
+        <form action="/addProduct/<%- listId %>" method="POST">
+            <input class="signUpAInputs" placeholder="Add a Need" type="text" name="name" required>
+            <div class="signUpAButtonsDiv">
+                <button class="signUpAButtons" type="submit">Add Product to List</button>
+            </div>
+        </form>
+        <% if (typeof err !== 'undefined') { %>
+            <p style="color: blue"><%= err %></p>
+            <% } %>
+    </div>
+    <div class="listPageCard">
+        <div class="someContainer" style="height: 100%">
+            <div class="needContainer"  style="height: 100%; padding: 20px;">
+                <h1 class="listNames">Need</h1>
+                <div class="row">                    
+                    <% if (needs) { %> 
+                        <% needs.forEach((need,i) => { %>
+                            <div class="oneItem">    
+                                <div>
+                                  <!-- <a href="<%#- artist.items[i].images[0].url%>">Pic</a> -->
+                                  <form action="/moveNeedToHave/<%- listId %>" method="POST">
+                                      <label>
+                                        <h5 class="oneItemText textCenter"><%- need.name %></h5>
+                                        <!-- <input type="checkbox" name="id" value="<%#-need._id%>"> -->
+                                        <input type="hidden" name="id" value="<%-need._id%>">
+                                        <div>
+                                            <button class="oneButton" type="submit">Move</button>
+                                        </div>
+                                      </label>
+                                    </form>
+                                    <br>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } %>
                 </div>
             </div>
-        <% }) %>
-    <% } %>
+            <div class="needContainer" style="height: 100%; padding: 20px; border-left: 0.5px solid grey;">
+                <h1 class="listNames">Have</h1>
+                
+                <div class="innerContainer">
+                    <% if (haves) { %> 
+                        <% haves.forEach((have) => { %>
+                            <div class="oneItem">    
+                                <h5 class="oneItemText textCenter"><%- have.name %></h5>
+                                <div class="row">
+                                    <form  style="width: 60px;" action="/moveHaveToNeed/<%- listId %>" method="POST">
+                                      <label>
+                                        <input type="hidden" name="id" value="<%-have._id%>">
+                                        <button class="oneButton" type="submit">Move</button>
+                                      </label>
+                                    </form >
+                                        <form style="width: 60px; margin-left: 7px;" action="/delete/product/<%- listId %>" method="POST">
+                                            <input type="hidden" name="id" value="<%-have._id%>">
+                                            <button class="oneButton" type="submit" ><i class="fa-regular fa-trash-can"></i></button>
+                                        </form>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<br>
-<div>
-    <form action="/addProduct/<%- listId %>" method="POST">
-        <label>Product: <input type="text" name="name" required></label><button type="su
-        ">Add Product to List</button>
-    </form>
-</div>
-
-<% if (typeof err !== 'undefined') { %>
-    <p style="color: blue"><%= err %></p>
-    <% } %>
