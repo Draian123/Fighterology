@@ -20,3 +20,6 @@
   <label><input type="text" name="newList" placeholder="Listname"></label>
   <button type="submit" >Create new List</button>
 </form>
+<% if (typeof err !== 'undefined') { %>
+  <p style="color: blue"><%= err %></p>
+  <% } %>

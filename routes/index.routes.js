@@ -9,7 +9,7 @@ const router = express.Router();
 /* GET home page */
 router.get("/", (req, res, next) => {
   
-  res.render("index");
+  res.render("index", {online: req.session.user});
 });
 
 router.post("/addProduct/:id",isLoggedIn, async (req, res, next) => {
@@ -86,5 +86,11 @@ router.post("/delete/product/:listId", isLoggedIn, async (req, res, next) => {
   let deletedProduct = await Product.findByIdAndDelete(body.id)
   res.redirect(`/auth/profile/list/${id}`)
 });
+
+router.get("/logout", (req, res, next) => {
+  req.session.user = undefined
+  res.render("index", {online: req.session.user});
+});
+
 
 module.exports = router;

@@ -18,41 +18,30 @@
 </header>
   <body>
     <div">
-      <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/auth">Signup</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/auth/login">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/auth/profile">Profile</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav> -->
       <nav class="notANavBar">
         <div>
           <ul class="flexContainer notANavBar">
             <li>
               <a class="navBarLinks" href="/">Home</a>
             </li>
+            <% if (!online) { %>
             <li>
               <a class="navBarLinks" href="/auth">Sign up</a>
             </li>
-            <li>
-              <a class="navBarLinks" href="/auth/login">Log in</a>
-            </li>
+             
+              <li>
+                <a class="navBarLinks" href="/auth/login">Log in</a>
+              </li>
+            <% } %>
+            <% if (online) { %>
+              <li>
+                <a class="navBarLinks" href="/logout">Log out</a>
+              </li>
+            <% } %>
             <li>
               <a class="navBarLinks" href="/auth/profile">Profile</a>
             </li>
+            
           </ul>
         </div>
       </nav>

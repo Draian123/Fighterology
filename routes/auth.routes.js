@@ -8,23 +8,28 @@ const bcrypt = require('bcrypt');
 
 /* GET home page */
 router.get("/",isLoggedOut, async (req, res, next) => {
-  res.render("signUp");
-
-
+    res.render("signUp", {online: req.session.user});
 });
 
-router.post("/", async(req, res, next) => {
+//sigup
+router.post("/signUp", async(req, res, next) => {
   try {
-    let body = req.body;
-    const salt = bcrypt.genSaltSync(12)
-    let passwordHash = bcrypt.hashSync(body.password, salt)
-    body.password = passwordHash
-    var createdUser = await User.create(body)
-    let newShoppingList = await ShoppingList.create({
-      name: "groceries",
-      userId: createdUser._id
-    })
-    res.redirect('/auth/login')
+    if(req.body.name && req.body.password && req.body.password === req.body.repeatPassword){
+      let body = req.body;
+      const salt = bcrypt.genSaltSync(12)
+      let passwordHash = bcrypt.hashSync(body.password, salt)
+      body.password = passwordHash
+      var createdUser = await User.create(body)
+      let newShoppingList = await ShoppingList.create({
+        name: "groceries",
+        userId: createdUser._id
+      })
+      res.redirect('/auth/login')
+    }
+    else if(req.body.password !== req.body.repeatPassword){
+      res.render('signUp', {err: "Passwords dont match"})
+    }
+    res.render('signUp', {err: 'All fields are mandatory. Please provide your username and password.'})
     
 }catch(err) {
     console.error(err)
@@ -32,7 +37,7 @@ router.post("/", async(req, res, next) => {
 })
 
 router.get("/login", isLoggedOut, (req, res, next) => {
-  res.render("login");
+  res.render("login", { online: req.session.user});
 });
 
 router.post('/login', isLoggedOut, async(req, res) => {
@@ -53,14 +58,15 @@ router.post('/login', isLoggedOut, async(req, res) => {
           throw new Error('Invalid password')
       }
   }
+  asfa
   }catch(err) {
-          res.render('login', {body, err: err})
+          res.render('login', {body, err: err, online: req.session.user})
   }
 });
 
 
 router.get("/profile",isLoggedIn, (req, res, next) => {
-  res.render("profile", {allShoppingLists: req.session.user.shoppingLists});
+  res.render("profile", {allShoppingLists: req.session.user.shoppingLists, online: req.session.user});
 });
 
 router.post("/profile/delete/:id", async (req, res, next) => {
@@ -72,7 +78,7 @@ router.post("/profile/delete/:id", async (req, res, next) => {
 });
 
 router.get("/profile/:id", isLoggedIn , (req, res, next) => {
-  res.render("profile", {allShoppingLists: req.session.user.shoppingLists})
+  res.render("profile", {allShoppingLists: req.session.user.shoppingLists, online: req.session.user})
 });
 
 
@@ -92,7 +98,7 @@ router.get("/profile/list/:id", isLoggedIn, async(req, res, next) => {
   const user = req.session.user
   const currentList = await ShoppingList.findById(listId).populate('need').populate('have')
 
-  res.render("list", {needs: currentList.need, haves: currentList.have, listId});
+  res.render("list", {needs: currentList.need, haves: currentList.have, listId, online: req.session.user});
 });
 
 

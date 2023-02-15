@@ -56,7 +56,9 @@
     </form>
 </div>
 
-
+<% if (typeof err !== 'undefined') { %>
+    <p style="color: blue"><%= err %></p>
+    <% } %>
 <!-- <br> -->
 <!-- <div>All Products</div> -->
 <%# allProducts.forEach(product => { %>

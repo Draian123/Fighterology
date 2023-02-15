@@ -1,6 +1,19 @@
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+
+.indexPosition {
+  position: absolute;
+  width: 800px;
+  top: 40%;
+  left: 50%;
+  margin-left: -400px;
+  text-align: center;
+  z-index: 120;
+  color: white;
+}
+
+.button {
+  color: #292e30;
+  border: none;
+  margin: 20px;
+  padding: 15px 50px;
+  border-radius: 5px;
+} 
