@@ -2,13 +2,13 @@
   position: absolute;
   width: 650px;
   top: 40%;
-  left: 56%;
+  left: 54%;
   margin-left: -400px;
   text-align: center;
   z-index: 120;
   background-color: #ffffff;
   border-radius: 10px;
-  padding: 25px;
+  padding: 35px;
   -webkit-box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.55);
   box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.55);
 }
@@ -19,18 +19,7 @@
 }
 
 
-/* .parentContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.picture1{
-    height: 90vh; width: 100vw; object-fit: cover;
-    display: block;
-    width: 100%;
-    background-image: url('./images/bananas.jpg');
 
-} */
 /* ab hier */
 
 .formContainer{
@@ -55,6 +44,8 @@
     margin-top: 15px;
 }
 .signUpAButtons{
+    font-size: 18px;
+    text-align: center;
     width: 350px;
     height: 40px;
     padding: 12px 50px;

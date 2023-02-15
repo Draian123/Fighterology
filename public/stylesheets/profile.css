@@ -26,8 +26,9 @@ body{
     justify-content: center;
     width: 400px;
     height: 200px;
-    background-color: rgb(236, 236, 236);
-    border: 1px solid rgb(84, 84, 235);
+    background-color: rgb(243, 243, 243);
+    /* border: 1px solid rgb(84, 84, 235); */
+    border: 1px solid rgba(163, 163, 163, 0.55);
     border-radius: 10px;
     color: white;
     padding: 40px;
@@ -52,6 +53,7 @@ body{
 }
 
 .buttonsAll{
+    font-size: 18px;
     width: 250px;
     padding: 12px 50px;
     border: none;
@@ -60,12 +62,18 @@ body{
     color: white;
 }
 
+.buttonsAll:hover{
+    width: 250px;
+    padding: 12px 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(84, 84, 235);
+    border: 1px solid rgb(84, 84, 235);
+}
 
 .listNames{
-    color: rgb(84, 84, 235);
-    /* width: 150px; */
-
-    /* border: 1px solid rgb(84, 84, 235); */
+    color: #292e30;
     border-radius: 10px;
     padding: 5px;
 }
@@ -122,12 +130,6 @@ body{
     align-items: center;
   }
   
-  /* .column {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-  } */
 
   .oneItem{
     width: 150px;
@@ -143,11 +145,17 @@ body{
     border: none;
     color: white;
   }
+
+  .oneButton:hover{
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid rgb(84, 84, 235);
+    color: rgb(84, 84, 235);
+  }
   
   .oneItemText{
     color: rgb(70, 70, 70);
     font-size: 18px;
-  }
-  .textCenter{
     text-align: center;
   }

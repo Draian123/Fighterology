@@ -31,3 +31,10 @@ li {
     color: #292e30;
     font-size: 18px;
 }
+
+.carouselHeadlines{
+    font-size: 100px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #292e30;
+}

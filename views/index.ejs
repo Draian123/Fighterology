@@ -1,28 +1,49 @@
+<div style="border-bottom: 2px solid #292e30;">
+
 <div id="carouselExample" class="carousel slide" style="height: 90vh; width: 100vw;">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="indexPosition">
-            <h1>9 out 10 dentists recommend!!</h1>
-            <a href="/auth/signUp"><button type="button" class="button">Sign up</button></a>
-            <a href="/auth/login"><button type="button" class="button">Log in</button></a>
+            <h1 class="carouselHeadlines">WUNDERLIST</h1>
+            <% if (!online) { %>
+            <a href="/auth/signUp"><button type="button" class="buttonsAll" style="font-size: 20px; margin-right: 15px;">Sign up</button></a>
+            <a href="/auth/login"><button type="button" class="buttonsAll" style="font-size: 20px; margin-left: 15px;">Log in</button></a>
+            <% } %>
         </div>
-        <img src="/images/bananas.jpg" class="d-block w-100" alt="..." style="height: 90vh; width: 100vw; object-fit: cover;">
+        <img src="/images/todolist.jpg" class="d-block w-100" alt="..." style="height: 90vh; width: 100vw; object-fit: cover;">
       </div>
       <div class="carousel-item">
         <div class="indexPosition">
-            <h1>1 gegen 1 und ich reiss dich in stücke!!</h1>
-            <a href="/auth/signUp"><button type="button" class="button">Sign up</button></a>
-            <a href="/auth/login"><button type="button" class="button">Log in</button></a>
+            <h1 class="carouselHeadlines">WUNDERLIST</h1>
+            <% if (!online) { %>
+            <a href="/auth/signUp"><button type="button" class="buttonsAll" style="font-size: 20px; margin-right: 15px;">Sign up</button></a>
+            <a href="/auth/login"><button type="button" class="buttonsAll" style="font-size: 20px; margin-left: 15px;">Log in</button></a>
+            <% } %>
+
         </div>
-        <img src="/images/grocery.jpg" class="d-block w-100" alt="..." style="height: 90vh; width: 100vw; object-fit: cover;">
+        <img src="/images/ballons.jpg" class="d-block w-100" alt="..." style="height: 90vh; width: 100vw; object-fit: cover; ">
       </div>
       <div class="carousel-item">
         <div class="indexPosition">
-            <h1>how much is the fish??</h1>
-            <a href="/auth/signUp"><button type="button" class="button">Sign up</button></a>
-            <a href="/auth/login"><button type="button" class="button">Log in</button></a>
+            <h1 class="carouselHeadlines">WUNDERLIST</h1>
+            <% if (!online) { %>
+            <a href="/auth/signUp"><button type="button" class="buttonsAll" style="font-size: 20px; margin-right: 15px;">Sign up</button></a>
+            <a href="/auth/login"><button type="button" class="buttonsAll" style="font-size: 20px; margin-left: 15px;">Log in</button></a>
+            <% } %>
+
         </div>
-        <img src="/images/supermarket.jpg" class="d-block w-100" alt="..." style="height: 90vh; width: 100vw; object-fit: cover;">
+        <img src="/images/winter.jpg" class="d-block w-100" alt="..." style="height: 90vh; width: 100vw; object-fit: cover; ">
+      </div>
+      <div class="carousel-item">
+        <div class="indexPosition">
+            <h1 class="carouselHeadlines">WUNDERLIST</h1>
+            <% if (!online) { %>
+            <a href="/auth/signUp"><button type="button" class="buttonsAll" style="font-size: 20px; margin-right: 15px;">Sign up</button></a>
+            <a href="/auth/login"><button type="button" class="buttonsAll" style="font-size: 20px; margin-left: 15px;">Log in</button></a>
+            <% } %>
+
+        </div>
+        <img src="/images/bag.jpg" class="d-block w-100" alt="..." style="height: 90vh; width: 100vw; object-fit: cover;">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -33,4 +54,5 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+</div>
 </div>
