@@ -14,7 +14,11 @@ router.get("/signUp",isLoggedOut, async (req, res, next) => {
 //sigup
 router.post("/signUp", async(req, res, next) => {
   try {
-    if(req.body.name && req.body.password && req.body.password === req.body.repeatPassword){
+    var checkUser = await User.find({name: req.body.name})
+    if(checkUser[0]){
+      res.render('signUp', {err: "User exists allready", online: req.session.user})
+    }
+    else if(req.body.name && req.body.password && req.body.password === req.body.repeatPassword){
       let body = req.body;
       const salt = bcrypt.genSaltSync(12)
       let passwordHash = bcrypt.hashSync(body.password, salt)
