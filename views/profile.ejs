@@ -19,7 +19,7 @@
 <form action="/auth/profile/createNewList" method="POST">
   <label><input type="text" name="newList" placeholder="Listname" required></label>
   <button type="submit" >Create new List</button>
+  <% if (typeof err !== 'undefined') { %>
+    <p style="color: blue"><%= err %></p>
+    <% } %>
 </form>
-<% if (typeof err !== 'undefined') { %>
-  <p style="color: blue"><%= err %></p>
-  <% } %>
