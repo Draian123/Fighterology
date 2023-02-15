@@ -43,6 +43,9 @@ router.get("/login", isLoggedOut, (req, res, next) => {
 router.post('/login', isLoggedOut, async(req, res) => {
   const body = req.body
   try{
+    if(req.body.password && req.body.name){
+
+    
       let userFound = await User.find({name: body.name})
 
   if(userFound == null){
@@ -58,9 +61,12 @@ router.post('/login', isLoggedOut, async(req, res) => {
           throw new Error('Invalid password')
       }
   }
-  asfa
+}else{
+  res.render('login', {body:body,  online: req.session.user,err: "User and Password dont match or User does not exist"})
+}
   }catch(err) {
-          res.render('login', {body, err: err, online: req.session.user})
+    console.log(err)
+          res.render('login', {body:body, online: req.session.user, err: "something went wrong"})
   }
 });
 
