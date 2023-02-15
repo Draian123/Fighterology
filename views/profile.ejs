@@ -1,25 +1,66 @@
-<h1>Profile</h1>
+<!-- <h1>Profile</h1>
 <br>
 <h1>All ShoppingLists</h1>
 <br>
-<% allShoppingLists.forEach(list => { %>
+<%# allShoppingLists.forEach(list => { %>
     <div >
         <div>
-          <h3><%-list.name%></h1>
-          <form action="/auth/profile/list/<%- list._id%>">
+          <h3><%#-list.name%></h1>
+          <form action="/auth/profile/list/<%#- list._id%>">
             <button type="submit">View List</button>
           </form>
-          <form action="/auth/profile/delete/<%- list._id%>" method="POST">
+          <form action="/auth/profile/delete/<%#- list._id%>" method="POST">
             <button type="submit" >Delete</button>
           </form>
         </div>
     </div>
-    <% }) %>
+    <%# }) %>
 
 <form action="/auth/profile/createNewList" method="POST">
   <label><input type="text" name="newList" placeholder="Listname" required></label>
   <button type="submit" >Create new List</button>
-  <% if (typeof err !== 'undefined') { %>
-    <p style="color: blue"><%= err %></p>
-    <% } %>
-</form>
+  <%# if (typeof err !== 'undefined') { %>
+    <p style="color: blue"><%#= err %></p>
+    <%# } %>
+</form> -->
+
+
+<!-- copied -->
+
+
+<div style="color: black; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="image1">
+  <h1 class="headLines">All ShoppingLists</h1>
+  <div class="formContainer createForm">
+    <form action="/auth/profile/createNewList" method="POST">
+      <input class="signUpAInputs" type="text" name="newList" placeholder="List Name" required>
+      <div class="signUpAButtonsDiv">
+        <button class="signUpAButtons" type="submit" >Create new List</button>
+      </div>
+      <% if (typeof err !== 'undefined') { %>
+        <p style="color: blue"><%= err %></p>
+        <% } %>
+    </form>
+  </div>
+  <div class=" profileCard" >
+    <% allShoppingLists.forEach(list => { %>
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap; height: 200px;">
+              <div class="listCard">
+                <h3 class="listNames"><%-list.name%></h1>
+                <form action="/auth/profile/list/<%- list._id%>">
+                  <div class="buttonsAllContainer">
+                    <button class="buttonsAll" type="submit">View List</button>
+                  </div>
+                </form>
+                <form action="/auth/profile/delete/<%- list._id%>" method="POST">
+                  <div class="buttonsAllContainer">
+                    <button class="buttonsAll" type="submit" >Delete</button>
+                  </div>
+                </form>
+              </div>
+        </div>
+        <% }) %>
+    
+      </div>
+</div>
+
+

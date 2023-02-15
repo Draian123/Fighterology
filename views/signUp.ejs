@@ -16,17 +16,17 @@
 <div id="carouselExample" class="carousel slide" style="height: 90vh; width: 100vw;">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="background">
+        <div >
             <div class="signUpFlex signUpPosition">
-                <div style="color: black">Create an account</div>
-                <form class="signUpForm" action="/auth/signUp" method="POST">
-                    <div>
-                    <label class="signUpLabels"><input class="signUpInputs" type="text" name="name" placeholder="Name"></label>
-                    <label class="signUpLabels"><input class="signUpInputs" type="password" name="password" placeholder="Password"></label>
-                    <label class="signUpLabels"><input class="signUpInputs" type="password" name="repeatPassword" placeholder="Confirm password"></label>
+                <div class="signUpText">Create an account</div>
+                <form  action="/auth/signUp" method="POST">
+                    <div class="formContainer" style="display: flex; flex-direction: column; flex-wrap: wrap;">
+                    <label ><input class="signUpAInputs" type="text" name="name" placeholder="Name"></label>
+                    <label ><input class="signUpAInputs" type="password" name="password" placeholder="Password"></label>
+                    <label ><input class="signUpAInputs" type="password" name="repeatPassword" placeholder="Confirm password"></label>
+                    <div class="signUpAButtonsDiv" >
+                        <button class="signUpAButtons" type="submit">Submit</button>
                     </div>
-                    <div>
-                    <button class="signUpButtons" type="submit">Submit</button>
                     </div>
                     <% if (typeof err !== 'undefined') { %>
                         <p style="color: red; z-index: 10000;"><%= err %></p>

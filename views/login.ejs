@@ -1,24 +1,22 @@
-<div id="carouselExample" class="carousel slide" style="height: 90vh; width: 100vw;">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-        <div class="background">
+
+        <div >
             <div class="signUpFlex signUpPosition">
-                <div style="color: black">Sign in to your account</div>
+                <div class="signUpText">Sign in to your account</div>
                 <form class="signUpForm" action="/auth/login" method="POST">
-                    <div>
-                    <label class="signUpLabels"><input placeholder="Name" type="text" name="name" value="<% if (typeof err !== 'undefined') { %><%= body.name %><% } %>">Name</label>
-                    <label class="signUpLabels"><input placeholder="Password" type="password" name="password">Password</label>
+                    <div class="formContainer">
+                    <label><input class="signUpAInputs" placeholder="Name" type="text" name="name" required value="<% if (typeof err !== 'undefined') { %><%= body.name %><% } %>"></label>
+                    <label ><input class="signUpAInputs" placeholder="Password" type="password" name="password" required></label>
                     </div>
-                    <div>
-                    <button class="signUpButtons" type="submit">Submit</button>
+                    <div class="signUpAButtonsDiv">
+                    <button class="signUpAButtons" type="submit">Submit</button>
                     </div>
                     <% if (typeof err !== 'undefined') { %>
-                    <p style="color: blue"><%= err %></p>
+                    <p style="color: red"><%= err %></p>
                     <% } %>
                 </form>
+                
             </div>
         </div>
         <img src="/images/grocery.jpg" class="d-block w-100" alt="..." style="height: 90vh; width: 100vw; object-fit: cover;">
-        </div>
-    </div>
-</div>
+       
+

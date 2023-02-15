@@ -48,9 +48,11 @@ router.post('/login', isLoggedOut, async(req, res) => {
     
       let userFound = await User.find({name: body.name})
 
-  if(userFound == null){
-      throw new Error('User not found')
+  if(userFound.length === 0){
+      // res.render('login', {body:body,  online: false,err: "User not found"})
+      res.redirect('/auth/login')
   }else{
+      // console.log("USerfound:", userFound)
       if(bcrypt.compareSync(body.password, userFound[0].password)){
           let allShoppingListsofUser = await ShoppingList.find({userId: userFound[0]._id})
           userFound[0].shoppingLists = allShoppingListsofUser
@@ -58,15 +60,20 @@ router.post('/login', isLoggedOut, async(req, res) => {
           res.redirect('/auth/profile')
       } else {
           // res.render('signIn', {errorMessage: 'wrong password', body})
-          throw new Error('Invalid password')
+          // throw new Error('Invalid password')
+          res.redirect('/auth/login')
+          // res.render('login', {body:body, online: req.session.user,err: "Invalid password"})
       }
   }
 }else{
-  res.render('login', {body:body,  online: req.session.user,err: "User and Password dont match or User does not exist"})
+  res.redirect('/auth/login')
+  // res.render('login', {body:body,  online: req.session.user, err: "User and Password dont match or User does not exist"})
 }
   }catch(err) {
     console.log(err)
-          res.render('login', {body:body, online: req.session.user, err: "something went wrong"})
+          // res.render('login', {body:body, online: req.session.user, err: "something went wrong"})
+          res.redirect('/auth/login')
+
   }
 });
 
