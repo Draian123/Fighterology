@@ -7,7 +7,7 @@ const ShoppingList = require('../models/ShoppingList.model')
 const bcrypt = require('bcrypt');
 
 /* GET home page */
-router.get("/",isLoggedOut, async (req, res, next) => {
+router.get("/signUp",isLoggedOut, async (req, res, next) => {
     res.render("signUp", {online: req.session.user});
 });
 
@@ -27,9 +27,9 @@ router.post("/signUp", async(req, res, next) => {
       res.redirect('/auth/login')
     }
     else if(req.body.password !== req.body.repeatPassword){
-      res.render('signUp', {err: "Passwords dont match"})
+      res.render('signUp', {err: "Passwords dont match", online: req.session.user})
     }
-    res.render('signUp', {err: 'All fields are mandatory. Please provide your username and password.'})
+    res.render('signUp', {err: 'All fields are mandatory. Please provide your username and password.', online: req.session.user})
     
 }catch(err) {
     console.error(err)
