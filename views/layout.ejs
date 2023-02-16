@@ -24,7 +24,7 @@
             <li>
               <a class="navBarLinks" href="/">Home</a>
             </li>
-            <% if (!online) { %>
+            <% if (!online || undefined) { %>
             <li>
               <a class="navBarLinks" href="/auth/signUp">Sign up</a>
             </li>
