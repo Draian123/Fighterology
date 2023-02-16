@@ -5,7 +5,7 @@
       <div class="carousel-item active">
         <div class="indexPosition">
             <h1 class="carouselHeadlines">WUNDERLIST</h1>
-            <% if (!online || undefined) { %>
+            <% if (!online || typeof(online) != "undefined") { %>
             <a href="/auth/signUp"><button type="button" class="buttonsAll" style="font-size: 20px; margin-right: 15px;">Sign up</button></a>
             <a href="/auth/login"><button type="button" class="buttonsAll" style="font-size: 20px; margin-left: 15px;">Log in</button></a>
             <% } %>
@@ -15,7 +15,7 @@
       <div class="carousel-item">
         <div class="indexPosition">
             <h1 class="carouselHeadlines">WUNDERLIST</h1>
-            <% if (!online || undefined) { %>
+            <% if (!online || typeof(online) != "undefined") { %>
             <a href="/auth/signUp"><button type="button" class="buttonsAll" style="font-size: 20px; margin-right: 15px;">Sign up</button></a>
             <a href="/auth/login"><button type="button" class="buttonsAll" style="font-size: 20px; margin-left: 15px;">Log in</button></a>
             <% } %>
@@ -26,7 +26,7 @@
       <div class="carousel-item">
         <div class="indexPosition">
             <h1 class="carouselHeadlines">WUNDERLIST</h1>
-            <% if (!online || undefined) { %>
+            <% if (!online || typeof(online) != "undefined") { %>
             <a href="/auth/signUp"><button type="button" class="buttonsAll" style="font-size: 20px; margin-right: 15px;">Sign up</button></a>
             <a href="/auth/login"><button type="button" class="buttonsAll" style="font-size: 20px; margin-left: 15px;">Log in</button></a>
             <% } %>
@@ -37,7 +37,7 @@
       <div class="carousel-item">
         <div class="indexPosition">
             <h1 class="carouselHeadlines">WUNDERLIST</h1>
-            <% if (!online) { %>
+            <% if (!online || typeof(online) != "undefined") { %>
             <a href="/auth/signUp"><button type="button" class="buttonsAll" style="font-size: 20px; margin-right: 15px;">Sign up</button></a>
             <a href="/auth/login"><button type="button" class="buttonsAll" style="font-size: 20px; margin-left: 15px;">Log in</button></a>
             <% } %>
